@@ -1,12 +1,13 @@
 #include <stdio.h>
 
-/************************************************************************
+/*****************************************************************************
 
 mymalloc.h
 
-This header file adds all function declarations to be defined in mymalloc.c. Also, initializes struct.
+This header file adds all function declarations to be defined in mymalloc.c. 
+Also, initializes struct.
  
-*************************************************************************/
+******************************************************************************/
 
 /* Struct to keep track of size of each block, next block and whether it's free or not */
 struct block{
