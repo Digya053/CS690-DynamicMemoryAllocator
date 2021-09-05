@@ -1,4 +1,4 @@
-/*******************************************************************
+/************************************************************************
 
 mymalloc.c
 
@@ -6,7 +6,7 @@ This program implements malloc and free functions. The free space has
 been allocated using mmap and first fit strategy is being used for the 
 selection of the block.
 
-*******************************************************************/
+************************************************************************/
 
 #include <stdlib.h>
 #include <sys/mman.h>
@@ -18,7 +18,6 @@ int memory = 20000;
 void initialize_freelist(){
 /* This function initializes freelist by allocating the free space using
 mmap, initializes the size, free flag and the next item in freelist. */
-
 	printf("Allocating total  memory..\n");
 	free_list = mmap(NULL, memory, PROT_READ|PROT_WRITE, MAP_ANON|MAP_PRIVATE, -1, 0);
 	printf("Total memory has been allocated. (Memory size: approximately %d bytes)\n", memory);
@@ -31,7 +30,6 @@ mmap, initializes the size, free flag and the next item in freelist. */
 void split_block(size_t size){
 /* Splits block if block size is greater than the number of bytes to be
 allocated. */
-
 	printf("Allocation resulted in splitting of a block (Internal fragmentation, block size > number of bytes). (Block size: %d, Number of bytes: %d) \n", current->size, size);
 	struct block *new = (void*)((void*)current + size + sizeof(struct block));
 	new->size = (current->size) - size - sizeof(struct block);
@@ -80,7 +78,6 @@ void *my_malloc(size_t no_of_bytes){
 
 void merge_blocks(){
 /* Merge the consecutive blocks if both of them are empty. */
-
 	printf("Merging consecutive free blocks..\n");
 	struct block *current,*previous;
 	current = free_list;
