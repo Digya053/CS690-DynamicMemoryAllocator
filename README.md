@@ -3,5 +3,6 @@ In this project, malloc and free functions have been implemented. The memory blo
 
 ## To run: <br />
  a. make <br />
- b. ./main <br />
- c. make lib
+ b. make lib <br />
+ c. make main <br />
+ d. ./main <br />
