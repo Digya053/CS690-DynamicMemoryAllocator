@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 /************************************************************************
+
 mymalloc.h
 
 This header file adds all function declarations to be defined in mymalloc.c. Also, initializes struct.
