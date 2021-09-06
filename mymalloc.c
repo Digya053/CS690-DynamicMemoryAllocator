@@ -27,7 +27,7 @@ mmap, initializes the size, free flag and the next item in freelist. */
 	free_list->next = NULL;
 }
 
-void split_block(int size){
+void split_block(size_t size){
 /* Splits block if block size is greater than the number of bytes to be
 allocated. */
 	printf("Allocation resulted in splitting of a block (Internal fragmentation, block size > number of bytes). (Block size: %d, Number of bytes: %d) \n", current->size, size);
@@ -40,11 +40,9 @@ allocated. */
 	current->next = new;
 }
 
-void *my_malloc(int no_of_bytes){
-/* Allocates memory in the space created by mmap. To allocate memory, first fit strategy have been used.
-*/
+void *my_malloc(size_t no_of_bytes){
+/* Allocates memory in the space created by mmap. To allocate memory, first fit strategy have been used.*/
 	printf("Allocating %d bytes in total memory..\n", no_of_bytes);
-	//struct block *current, *previous;
 	void *result;
 	current = free_list;
 	if (current->size < 0){
@@ -80,11 +78,11 @@ void merge_blocks(){
 	struct block *current, *previous;
 	current = free_list;
 	while((current->next) != NULL){
-		if(current->free == 1 && current->next->free==1 && current->next->next){
+		if(current->free && current->next->free && current->next->next){
 			current->size += (current->next->size) + (sizeof(struct block));
 			current->next = current->next->next;
 
-		} else if(current->free == 1 && current->next->free==1 && !current->next->next){
+		} else if(current->free && current->next->free && !current->next->next){
 			current->size += (current->next->size) + (sizeof(struct block));
 		}
 	previous = current;
@@ -96,7 +94,6 @@ void my_free(void* ptr){
 /* Frees the consecutive blocks and set the flag of the freed space to 1.*/
 	struct block* current = ptr;
 	-- current;
-	//printf("Freeing blocks of size %d\n", current->size);
 	current->free = 1;
 	printf("Freeing blocks of size approximately %d\n", current->size);
 	merge_blocks();
