@@ -8,19 +8,33 @@
 int main(){
 	initialize_freelist();
 
-	printf("First malloc call:\n");
-	int *p = (int*)my_malloc(20*sizeof(int));
-	my_free(p);
+	printf("==============================================First malloc call:==============================================\n");
+	int *p = (int*)my_malloc(200*sizeof(int));
+	//my_free(p);
 
-	printf("Second malloc call:\n");
-	char *q = (char*)my_malloc(300*sizeof(char));
+	printf("==============================================Second malloc call:==============================================\n");
+	int *q = (int*)my_malloc(100*sizeof(int));
+	//my_free(q);
+
+	printf("==============================================Third malloc call:==============================================\n");
+	char *r = (char*)my_malloc(10*sizeof(char));
+	my_free(r);
 	my_free(q);
 
-	printf("Third malloc call:\n");
-	int *r = (int*)my_malloc(2000*sizeof(int));
-	my_free(r);
+	printf("==============================================Fourth malloc call:==============================================\n");
+	double *s = (double*)my_malloc(1000*sizeof(double));
+	my_free(s);
 
-	printf("Fourth malloc call:\n");
-	double *w = (double*)my_malloc(1000);
-	my_free(w);
+	printf("==============================================Fifth malloc call:==============================================\n");
+        double *w = (double*)my_malloc(1000*sizeof(double));
+        //my_free(w);
+
+	printf("==============================================Sixth malloc call:==============================================\n");
+        char *x = (char*)my_malloc(10*sizeof(char));
+        //my_free(r);
+
+	printf("==============================================Seventh malloc call:==============================================\n");
+        int *y = (int*)my_malloc(100*sizeof(int));
+        //my_free(q);	
+
 }
