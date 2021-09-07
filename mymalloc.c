@@ -55,7 +55,7 @@ void *my_malloc(size_t no_of_bytes){
 	while((((current->size) < no_of_bytes)||((current->free) == 0)) && (current->next != NULL)){
 		previous = current;
 		current = current->next;
-		printf("Skipping a block of %d bytes as number of bytes cannot fit in this block or is already filled with previous allocations..\n", previous->size);
+		printf("Skipping a block of approximately %d bytes as number of bytes cannot fit in this block or is already filled with previous allocations..\n", previous->size);
  	}
 	if((current->size) == no_of_bytes){
 		printf("Allocating a block exactly equal to number of bytes. (Current size: %d, Number of Bytes: %d)\n",current->size, no_of_bytes);
