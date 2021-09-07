@@ -16,25 +16,25 @@ int main(){
 	int *q = (int*)my_malloc(100*sizeof(int));
 	//my_free(q);
 
-	printf("==============================================Third malloc call:==============================================\n");
+	printf("==============================================Third malloc call:===============================================\n");
 	char *r = (char*)my_malloc(10*sizeof(char));
 	my_free(r);
 	my_free(q);
 
-	printf("==============================================Fourth malloc call:==============================================\n");
+	printf("==============================================Fourth malloc call:===============================================\n");
 	double *s = (double*)my_malloc(1000*sizeof(double));
 	my_free(s);
 
-	printf("==============================================Fifth malloc call:==============================================\n");
-        double *w = (double*)my_malloc(1000*sizeof(double));
+	printf("==============================================Fifth malloc call:================================================\n");
+        double *w = (double*)my_malloc(2000*sizeof(double));
         //my_free(w);
 
-	printf("==============================================Sixth malloc call:==============================================\n");
-        char *x = (char*)my_malloc(10*sizeof(char));
+	printf("==============================================Sixth malloc call:================================================\n");
+        char *x = (char*)my_malloc(1000*sizeof(char));
         //my_free(r);
 
-	printf("==============================================Seventh malloc call:==============================================\n");
-        int *y = (int*)my_malloc(100*sizeof(int));
+	printf("========================================Seventh malloc call (Out of space):======================================\n");
+        int *y = (int*)my_malloc(9000*sizeof(int));
         //my_free(q);	
 
 }
